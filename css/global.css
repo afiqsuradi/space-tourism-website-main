@@ -1,6 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* I have decided to not depend on tailwindcss as such I made this file to reset all of the default styling */
+
 *, *::before, *::after {
     box-sizing: border-box;
   }
@@ -11,6 +13,7 @@
   
 
   body {
+    overflow-x: hidden;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
@@ -31,15 +34,25 @@
     overflow-wrap: break-word;
   }
   
+  button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
 
   #root, #__next {
     isolation: isolate;
   }
 
   .navbar-container {
+    position: relative;
     display: flex;
     flex-direction: row;
-    padding: 2.5rem 3rem 0 3rem;
+    padding: 2.5em 3em 0 3em;
     align-items: center;
     justify-content: space-between;
     font-family: 'Barlow Condensed', 'Times New Roman', Times, serif;
@@ -47,25 +60,74 @@
     font-size: 1rem;
   }
 
-  .navbar-container > .nav-links-container {
+  .navbar-container > .navbar-links-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     list-style: none;
-    gap: 2.4rem 3rem;
-    padding-left: 10rem;
+    gap: 2.4em 3em;
+    padding-left: 10em;
   }
 
-  .navbar-container > .nav-links-container > li {
-    padding: 2.4rem 0;
+  .navbar-container > .navbar-links-container > li {
+    padding: 2.4em 0;
   }
 
-  .navbar-container > .nav-links-container > strong {
+  .navbar-container > .navbar-links-container > strong {
     font-weight: 600;
   }
 
+  .navbar-button{
+    display: none;
+    z-index: 2;
+  }
+
   @media only screen and (max-width: 500px) {
-    .navbar-container > .nav-links-container {
-        display: none;
+      .navbar-container > .navbar-links-container {
+          position: absolute;
+          top: 9em;
+          flex-direction: column;
+          align-items: start;
+          min-width: 254px;
+          gap: 2em;
+          padding-left: 2em;
+          transition: right 0.3s ease;
+    }
+
+    .navbar-container > .navbar-links-container[status=close] {
+      right: -100%;
+    }
+
+    .navbar-container > .navbar-links-container[status=open] {
+      right: 0;
+    }
+    
+    .navbar-container > .navbar-links-container::before{
+        
+      content: " ";
+      position: absolute;
+      right: 0;
+      top: -9em;
+      height: 100dvh;
+      min-width: 254px;
+      /* From https://css.glass */
+      background: rgba(255, 255, 255, 0.11);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10.7px);
+      -webkit-backdrop-filter: blur(10.7px);
+      z-index: 1;
+  }
+
+      .navbar-container > .navbar-links-container > li {
+        padding: 0;
+        z-index: 99;
+      }
+
+      .navbar-button{
+        display: inline-block;
+      }
+
+      .navbar-container {
+        padding: 1.5em;
       }
   }
