@@ -1,6 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
 /* I have decided to not depend on tailwindcss as such I made this file to reset all of the default styling */
 
 *, *::before, *::after {
@@ -52,25 +52,58 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    padding: 2.5em 3em 0 3em;
+    padding: 2.5em 0 0 0;
     align-items: center;
     justify-content: space-between;
     font-family: 'Barlow Condensed', 'Times New Roman', Times, serif;
     color: white;
     font-size: 1rem;
+    line-height: 19.2%;
   }
 
+  .navbar-container > img {
+    margin-left: 3em;
+  }
+
+
+
   .navbar-container > .navbar-links-container {
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
     list-style: none;
     gap: 2.4em 3em;
     padding-left: 10em;
+    padding-right: 3em;
+    mask-image: linear-gradient(to left, white, 95%, transparent);
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.7px);
+    -webkit-backdrop-filter: blur(3.7px);
+    z-index: 5;
+  }
+
+  .navbar-container::before {
+    content: " ";
+    left: 14%;
+    position: absolute;
+    height: 0.2rem;
+    width: 50dvw;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.7px);
+    -webkit-backdrop-filter: blur(3.7px);
   }
 
   .navbar-container > .navbar-links-container > li {
     padding: 2.4em 0;
+  }
+
+  .navbar-container > .navbar-links-container > li *{
+    margin-right: 0.75em;
   }
 
   .navbar-container > .navbar-links-container > strong {
@@ -78,8 +111,9 @@
   }
 
   .navbar-button{
+    padding-right: 3em;
     display: none;
-    z-index: 2;
+    z-index: 6;
   }
 
   @media only screen and (max-width: 500px) {
@@ -92,6 +126,7 @@
           gap: 2em;
           padding-left: 2em;
           transition: right 0.3s ease;
+          mask-image: none;
     }
 
     .navbar-container > .navbar-links-container[status=close] {
@@ -115,7 +150,6 @@
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(10.7px);
       -webkit-backdrop-filter: blur(10.7px);
-      z-index: 1;
   }
 
       .navbar-container > .navbar-links-container > li {

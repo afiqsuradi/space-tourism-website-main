@@ -1,9 +1,59 @@
+
 html { 
     background: url(/assets/home/background-home-desktop.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+  }
+
+  .main-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8em 10.3125em;
+  }
+
+  .text-container{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: 'Barlow Condensed', 'Times New Roman', Times, serif;
+    text-wrap: wrap;
+    max-width: 540px;
+  }
+
+  .text-container > span{
+    line-height: 33.6%;
+    font-size: 1.75rem;
+  }
+
+  .text-container > header {
+    font-family: 'Bellefair', 'Times New Roman', Times, serif;
+    font-size: 9rem;
+    line-height: 171.9%;
+    text-transform: uppercase;
+  }
+
+  .text-container > p {
+    font-size: 1.125rem;
+    line-height: 180%;
+    font-weight: 400;
+  }
+
+  .explore-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bellefair', 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    padding: 4.25em;
+    border-radius: 999999px;
+    width: 272px;
+    height: 272px;
+    background-color: white;
+    color: #0B0D17;
   }
 
   @media only screen and (max-width: 768px) {
