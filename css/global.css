@@ -129,6 +129,10 @@
           mask-image: none;
     }
 
+    .navbar-container::before {
+      display: none;
+    }
+
     .navbar-container > .navbar-links-container[status=close] {
       right: -100%;
     }
@@ -138,7 +142,6 @@
     }
     
     .navbar-container > .navbar-links-container::before{
-        
       content: " ";
       position: absolute;
       right: 0;
